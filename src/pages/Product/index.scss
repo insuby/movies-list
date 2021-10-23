@@ -1,0 +1,155 @@
+@import "../../assets/styles/vars";
+
+.product {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-areas:
+  'image info'
+  'comments comments';
+  grid-template-columns: 300px 1fr;
+  grid-gap: 1rem;
+  font-family: $font-secondary;
+  position: relative;
+
+  &__image {
+    grid-area: image;
+    display: flex;
+    width: 300px;
+    height: 450px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    max-height: 450px;
+
+    &__uploaded {
+      grid-area: info;
+      margin: 0;
+      color: $color-text-action;
+      font-size: $font-size + 6;
+      font-weight: bold;
+      padding: .5rem 0;
+
+      &__name {
+        font-weight: bold;
+        @include text-gradient($color-text-primary-opposite, $color-text-action);
+      }
+    }
+
+    &__genre {
+      @include flex($direction: row, $justify: flex-start);
+      flex-wrap: wrap;
+      column-gap: 1rem;
+      color: $color-text-primary;
+      font-weight: bold;
+      padding-bottom: .5rem;
+
+      span {
+        padding: 0 .5rem;
+        background: $color-text-primary-opposite;
+      }
+    }
+
+    &__desc {
+      color: shade-color($color-text-secondary, 60%);
+      max-height: 250px;
+      overflow: auto;
+    }
+
+    &__btn {
+      height: $btn-height;
+      border: unset;
+      font-weight: bold;
+      font-size: inherit;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      color: $color-text-primary;
+      transition: $transition-base;
+      background: $color-text-primary-opposite;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__comments {
+    grid-area: comments;
+
+    ul {
+      li {
+        @include flex($align: flex-start);
+        background-color: $color-text-primary-opposite;
+        color: $color-text-primary;
+        padding: .3rem .5rem;
+        border-radius: 8px;
+        position: relative;
+
+        &:not(:first-child) {
+          margin-top: 5px;
+        }
+
+        &:first-letter {
+          text-transform: uppercase;
+        }
+
+        span {
+          &:not(:first-child) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &__text {
+      text-indent: 25px;
+      text-align: justify;
+
+      &:before {
+        content: "—";
+        position: absolute;
+        left: -.5rem;
+      }
+    }
+
+    &__author {
+      padding-top: .3rem;
+      color: $color-text-action;
+      font-weight: bold;
+      text-align: right;
+
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: .3rem;
+      right: .3rem;
+      user-select: none;
+      cursor: pointer;
+    }
+
+  }
+
+  @media (max-width: map-get($grid-breakpoints, lg)) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'image'
+    'info'
+    'comments';
+
+    &__image {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

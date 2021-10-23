@@ -1,0 +1,38 @@
+@import "../../../assets/styles/vars";
+
+.pages-nums {
+  @include flex($justify: center, $direction: row);
+
+  button {
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border: 1px solid $color-text-primary-opposite;
+    color: $color-text-primary-opposite;
+
+    &:not(:last-child) {
+      border-right-color: transparent;
+    }
+
+    &:first-child {
+      border-top-left-radius: .3rem;
+      border-bottom-left-radius: .3rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+
+    &:hover:not(.active) {
+      outline: 1px solid $color-text-primary-opposite;
+      border-left-color: $color-text-primary-opposite;
+      border-right-color: $color-text-primary-opposite;
+    }
+
+    &.active {
+      background: $color-text-primary-opposite;
+      font-weight: bold;
+      color: $color-text-primary;
+    }
+  }
+}

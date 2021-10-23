@@ -1,0 +1,38 @@
+@import "../../../assets/styles/vars";
+
+.form-comment {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px 1fr 60px;
+
+  &__head {
+    color: $color-text-primary-opposite;
+    @include flex($direction: row);
+    column-gap: 10px;
+    font-weight: bold;
+    font-size: $font-size + 6;
+  }
+
+  &__body {
+    @include flex($justify: space-between, $align: flex-start);
+
+    textarea {
+      width: 100%;
+    }
+  }
+
+  &__foot {
+    @include flex($direction: row);
+    column-gap: 10px;
+    padding: .5rem 0;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+
+  &__close {
+    cursor: pointer;
+    user-select: none;
+  }
+}

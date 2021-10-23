@@ -1,0 +1,50 @@
+@import "../../assets/styles/vars";
+@import "~hamburgers/_sass/hamburgers";
+
+$height: 1px;
+$width: 30px;
+$distance: -7px;
+
+@mixin inner {
+  &-inner {
+    background-color: $color-5;
+    width: $width;
+    height: $height;
+
+    &:before, &:after {
+      background-color: $color-5;
+      width: $width;
+      height: $height;
+    }
+  }
+}
+
+.hamburger {
+  padding: 0;
+
+  &-box {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-inner {
+    margin-top: 0;
+
+    &:before {
+      top: $distance;
+    }
+
+    &:after {
+      bottom: $distance;
+    }
+  }
+
+  @include inner;
+
+  &.is-active {
+    .hamburger {
+      @include inner;
+    }
+  }
+}

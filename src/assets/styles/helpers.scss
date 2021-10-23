@@ -1,0 +1,15 @@
+@import "mixins";
+
+$strokes: 1 2 3 4 5;
+
+@each $stroke in $strokes {
+  .strokes-count-#{$stroke} {
+    overflow: hidden;
+    line-height: 1.3em;
+    max-height: calc(1.3em * #{$stroke});
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $stroke;
+    -webkit-box-orient: vertical;
+  }
+}

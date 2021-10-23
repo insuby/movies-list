@@ -1,0 +1,68 @@
+@import "../../assets/styles/vars";
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin loaderDivMixin {
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px solid transparent;
+  animation: rotate linear 3.5s infinite;
+}
+
+.loader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+
+  div {
+    height: 100%;
+    @include loaderDivMixin;
+    border-bottom-color: $color-text-primary-opposite;
+    border-top-color: $color-text-action;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 999;
+    visibility: hidden;
+  }
+
+  &__container {
+    width: 150px;
+    height: 150px;
+    position: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: auto;
+  }
+
+
+}
+
+.loader, .loader * {
+  will-change: transform;
+}

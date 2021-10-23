@@ -1,0 +1,23 @@
+@import "../../../assets/styles/vars";
+
+.show-count {
+  border-radius: 16px;
+
+  @include flex($display: inline-flex, $justify: space-around, $direction: row);
+
+  span, select {
+    color: $color-text-primary;
+  }
+
+  select {
+    border: 1px solid tint-color($color-text-primary-opposite, 50);
+    background: transparent;
+    font-size: $font-size;
+    cursor: pointer;
+    padding: .3rem 1rem;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    //width: unset;
+  }
+}

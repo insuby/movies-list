@@ -1,0 +1,53 @@
+@import "../../../assets/styles/vars";
+
+.black-list {
+  ul {
+    background: $color-text-primary;
+    border-radius: 16px 0 0 0;
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+    min-height: $card-height-desktop;
+    @include simple-gradient(to right, $color-text-primary, $color-text-primary-opposite);
+
+    li {
+      height: $btn-height + 10;
+      padding-left: 2rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+      user-select: none;
+
+      span {
+        transition: transform 0.25s;
+
+        &:first-child {
+          font-size: 3rem;
+          opacity: .5;
+          transform: translateX(-.5rem)
+        }
+
+        &:last-child {
+          transform: translateX(-2rem);
+          @include text-gradient($color-text-secondary, $color-text-action);
+        }
+      }
+
+      &:hover:not(.active) {
+        color: $color-text-primary-opposite;
+
+        span {
+          &:first-child {
+            opacity: 1;
+          }
+
+          &:last-child {
+            transform: translateX(0)
+          }
+        }
+      }
+    }
+  }
+}
+

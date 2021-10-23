@@ -1,0 +1,180 @@
+@import "../assets/styles/vars";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: .5rem 0;
+}
+
+header {
+  background: $color-text-primary-opposite;
+  color: $color-text-primary;
+  font-size: inherit;
+}
+
+footer {
+  color: $color-text-primary;
+  background: $color-text-primary-opposite;
+  font-size: inherit;
+
+  h2 {
+    @include text-gradient(tint-color($color-text-primary-opposite, 40%), $color-text-action);
+  }
+}
+
+header, main, footer {
+  & > :first-child {
+    height: 100%;
+  }
+}
+
+main {
+  background: $color-text-primary;
+  color: $color-text-primary-opposite;
+  display: grid;
+  padding: 2rem 0;
+  font-size: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    a {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+#root {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: $font-primary;
+  font-size: $font-size;
+
+  .container {
+    box-sizing: border-box;
+  }
+
+  input {
+    &:not([type='checkbox']) {
+      width: 100%;
+      height: $btn-height - 20;
+      padding: 0 .5rem;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:focus-visible::placeholder {
+        color: $color-text-secondary;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-text-action;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    font-size: $font-size - 2;
+  }
+}
+
+$mobile-sizes: 428, 414, 412, 390, 384, 375, 360, 320;
+
+@each $size in $mobile-sizes {
+  @media (max-width: $size + px) {
+    .container {
+      max-width: $size + px;
+    }
+  }
+}
+
+.text-truncate {
+  max-width: 60%;
+}
+
+.shadow-wrapper {
+  box-shadow: 0 0 5px 0 $color-text-primary-opposite;
+  padding: 1rem;
+  width: unset;
+
+  &_reverse {
+    @include simple-gradient(to left, $color-text-primary, $color-text-primary-opposite);
+  }
+}
+
+.btn {
+  font-weight: 500;
+  border: 1px solid;
+  font-size: $font-size;
+  padding: 0.3rem 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  height: $btn-height;
+
+  &:hover:not(.active) {
+    cursor: pointer;
+  }
+
+  &.transition-scale:active {
+    transform: scale(.9);
+  }
+
+  &__default {
+    color: $color-text-primary;
+    @include simple-gradient(to right, $color-text-primary-opposite, $color-text-secondary);
+
+    svg {
+      margin-right: .5rem;
+    }
+
+    &:hover:not(.active) {
+      outline: 1px solid $color-text-primary-opposite;
+    }
+
+    &.active {
+      @include simple-gradient(to right, $color-text-action, $color-text-secondary);
+      color: $color-text-primary;
+
+      &:hover {
+        outline: unset;
+      }
+    }
+
+    &_reverse {
+      color: $color-text-primary;
+      @include simple-gradient(to left, $color-text-action, $color-text-secondary);
+
+      svg {
+        margin-right: .5rem;
+      }
+
+      &:hover {
+        outline: 1px solid $color-text-action;
+        outline-offset: 1px;
+      }
+    }
+  }
+
+}

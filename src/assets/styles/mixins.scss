@@ -1,0 +1,16 @@
+@mixin flex($display: flex, $align: center, $justify: space-between, $direction: column) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin simple-gradient($to, $primary, $secondary) {
+  background: linear-gradient($to, $primary, $secondary)
+}
+
+@mixin text-gradient($primary, $secondary) {
+  @include simple-gradient(to right, $primary, $secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

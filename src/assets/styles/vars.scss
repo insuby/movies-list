@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap-utilities";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/modal";
+@import "helpers";
+
+$color-1: $orange-400;
+$color-2: $cyan-900;
+$color-3: #828282;
+$color-4: #18171c;
+$color-5: #fafafa;
+
+$color-text-primary: $color-5;
+$color-text-secondary: $color-3;
+$color-text-action: $color-1;
+$color-text-primary-opposite: $color-2;
+
+$font-primary: 'Open Sans', sans-serif;
+$font-secondary: 'Poiret One', cursive;
+
+$font-size: 18px;
+
+$btn-height: 54px;
+$nav-height: $btn-height * 2.5;
+$card-height-desktop: 400px;
+$card-height-mobile: 300px;

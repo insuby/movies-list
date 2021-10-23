@@ -1,0 +1,128 @@
+@import "../../../assets/styles/vars";
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poiret+One&display=swap');
+
+#movies {
+  grid-gap: calc(#{$btn-height} + .5rem) 1rem;
+  transition: .1s ease;
+  margin-bottom: $btn-height;
+  position: relative;
+
+  .movie {
+    background: $color-text-primary;
+    cursor: pointer;
+    position: relative;
+    height: $card-height-desktop;
+    border: 2px solid transparent;
+    font-family: $font-secondary;
+    @include flex($align: inherit);
+
+    &:hover {
+      border-color: $color-text-action;
+
+      .movie {
+        &__btn {
+          display: flex;
+        }
+
+        &__genres {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__genres {
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      top: 3px;
+      left: 3px;
+      opacity: 0;
+    }
+
+    &__genre {
+      border-radius: .3rem;
+      padding: .1rem .3rem;
+      background: $color-text-primary-opposite;
+      color: $color-text-primary;
+      font-weight: bold;
+      margin-bottom: .2rem;
+      margin-right: .3rem;
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      text-indent: 100%;
+      overflow: hidden;
+    }
+
+    &__img {
+      min-height: 300px;
+      height: 80%;
+    }
+
+    &__rating {
+      margin: 0;
+      font-size: $font-size + 2;
+      color: $color-text-action;
+      font-weight: bold;
+      @include flex($display: inline-flex, $direction: row, $align: center);
+
+      svg {
+        margin-left: .2rem;
+      }
+    }
+
+    &__black-list {
+      position: absolute;
+      right: 1rem;
+      transition: .15s ease;
+    }
+
+    &__name {
+      margin: 0;
+      font-size: inherit;
+      font-weight: bold;
+    }
+
+    &__btn {
+      background: $color-text-action;
+      height: $btn-height;
+      border: unset;
+      font-weight: bold;
+      font-size: inherit;
+      cursor: pointer;
+      color: $color-text-primary;
+      text-transform: uppercase;
+      width: 100%;
+      display: none;
+      box-shadow: 0 3px 3px 0 $color-text-primary-opposite;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        margin-right: .5rem;
+      }
+
+      &__wrapper {
+        position: absolute;
+        bottom: -$btn-height;
+        left: -2px;
+        right: -2px;
+        top: 99%;
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+      min-height: $card-height-mobile;
+
+      &__btn {
+        display: flex;
+      }
+    }
+
+  }
+}
