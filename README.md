@@ -8,4 +8,4 @@ simple movies list where you can:
  
 each of your action stores in localstorage  
   
-[workng example](https://insuby.github.io/)
+[workng example](https://insuby.github.io/movies-list/)
