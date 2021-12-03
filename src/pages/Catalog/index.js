@@ -9,10 +9,10 @@ import ShowCount from "../../components/Catalog/ShowCount";
 import Loader from "../../components/Loader";
 
 const MoviesList = observer(() => {
-    const {loading:{load}} = useContext(Context)
+    const {loader:{load}} = useContext(Context)
 
     return (
-        <div className={'catalog'}>
+        <div id={'catalog'} className={'catalog'}>
             <Loader load={load}/>
             <BlackList/>
             <ShowCount/>
