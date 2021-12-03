@@ -4,8 +4,6 @@ import {Context} from "../index";
 import AppRouter from "../components/AppRouter";
 import {BrowserRouter} from "react-router-dom";
 import {Container} from "react-bootstrap";
-import SiteNav from "../components/SiteNav";
-import Footer from "./Footer";
 import CatalogStore from "../store/catalog";
 import CommentsStore from "../store/comments";
 import LoaderStore from "../store/loader";
@@ -21,16 +19,14 @@ const Layout = () => {
         }}>
             <BrowserRouter>
                 <header>
-                    <SiteNav/>
+                    <nav/>
                 </header>
                 <main>
                     <Container>
                         <AppRouter/>
                     </Container>
                 </main>
-                <footer>
-                    <Footer/>
-                </footer>
+                <footer/>
                 <Loader/>
                 <Modal/>
             </BrowserRouter>
