@@ -1,41 +1,30 @@
-import {useCallback, useContext} from "react";
-import {Context} from "../index";
+import {useCallback, useContext} from 'react';
+import {Context} from '../index';
 
 export const useFetch = () => {
-    const {loading} = useContext(Context)
+    const {loader} = useContext(Context)
 
     const request = useCallback(async ({url, method = 'GET', body = null, headers = {}}) => {
-
         if (!url) throw new Error('no url found');
 
-        loading.setLoading(true)
+        loader.setLoading(true)
 
         if (body && typeof body !== 'string') {
             body = JSON.stringify(body)
-            headers = {
-                "Content-Type": "application/json",
-                ...headers
-            }
+            headers = {'Content-Type': 'application/json', ...headers}
         }
 
         try {
-            const response = await fetch(url, {method, body, headers})
-            const data = await response.json()
+            const data = await fetch(url, {method, body, headers}).then(r => r.json())
 
-            if (!response.ok) {
-                throw new Error(response.statusText)
-            }
-
-            loading.setLoading(false)
+            loader.setLoading(false)
 
             return data
-
         } catch (e) {
-            loading.setLoading(false)
+            loader.setLoading(false)
             throw e
         }
+    }, [loader])
 
-    }, [loading])
-
-    return {request, loading}
+    return {request, loader}
 }
