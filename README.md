@@ -2,10 +2,10 @@
 
 react + mobx
 
-simple movies list where you can:
- - add to /remove from black list
+simple movies list where user can:
+ - add to / remove from black list
  - add / remove comments to movies
  
-each of your action stores in localstorage  
+each of user's actions are stores in localstorage  
   
 [workng example](https://insuby.github.io/movies-list/)
