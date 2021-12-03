@@ -39,7 +39,7 @@ const Movies = observer(() => {
                             </span>
                         </div>
                         <p className={'movie__name strokes-count-1'} title={title}>{ucFirst(title)}</p>
-                        <div className={'movie__btn__wrapper'}>
+                        <div className={'movie__btn_wrapper'}>
                             <NavLink to={PRODUCT_ROUTE + '/' + id} className={'btn movie__btn shadow-wrapper'}>
                                 <FontAwesomeIcon icon={faExternalLinkAlt}/>
                                 show more
