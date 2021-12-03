@@ -1,13 +1,13 @@
 @import "../../../assets/styles/vars";
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poiret+One&display=swap');
 
-#movies {
+#movies.movies {
   grid-gap: calc(#{$btn-height} + .5rem) 1rem;
   transition: .1s ease;
   margin-bottom: $btn-height;
   position: relative;
 
-  .movie {
+  & .movie {
     background: $color-text-primary;
     cursor: pointer;
     position: relative;
